@@ -1,4 +1,4 @@
-package com.secoo.xing.spark.streaming
+package com.worker.xing.spark.streaming
 
 import kafka.serializer.StringDecoder
 import org.apache.spark.SparkConf

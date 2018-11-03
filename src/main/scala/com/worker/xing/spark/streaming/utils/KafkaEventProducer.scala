@@ -1,4 +1,4 @@
-package com.secoo.xing.spark.streaming.utils
+package com.worker.xing.spark.streaming.utils
 
 import java.util.Properties
 
