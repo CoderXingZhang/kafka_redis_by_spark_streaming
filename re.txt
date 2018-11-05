@@ -1,0 +1,18 @@
+- 启动zookeeper
+./zkServer.sh start ../conf/zoo.cfg 1>/dev/null 2>&1 &
+
+- 启动kafka
+./kafka-server-start.sh ../config/server.properties 1>/dev/null 2>&1 &
+
+- 创建topic
+./kafka-topics.sh --create --zookeeper 127.0.0.1:2181 --replication-factor 1 --partitions 1 --topic user_events
+
+- 查看创建的topic
+./kafka-topics.sh --zookeeper 127.0.0.1:2181  --list
+
+
+- 启动redis
+/usr/local/redis**/src
+./redis-server
+
+./bin/spark-submit --class com.worker.xing.spark.streaming.UserClickCountAnalytics --master spark://zhangxingdeMacBook-Pro:7077 --executor-memory 1G --total-executor-cores 2 /Users/zhangxing/JavaProject/sparkProject/sparkToRedis/kafka_redis_by_spark_streaming/out/artifacts/spark_streatming_kafka_to_redis_jar/spark_streatming_kafka_to_redis.jar spark://zhangxingdeMacBook-Pro:7077

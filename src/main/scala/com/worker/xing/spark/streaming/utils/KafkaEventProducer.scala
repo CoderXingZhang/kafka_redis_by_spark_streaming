@@ -40,7 +40,7 @@ object KafkaEventProducer {
   //producer 主程序 ，一直向topic发数
   def main(args: Array[String]): Unit = {
     val topic = "user_events"
-    val brokers = "192.168.3.210:9092"
+    val brokers = "127.0.0.1:9092"
     val props = new Properties()
     props.put("metadata.broker.list",brokers)
     props.put("serializer.class","kafka.serializer.StringEncoder")
@@ -62,7 +62,7 @@ object KafkaEventProducer {
       //produce event message
       producer.send(new KeyedMessage[String,String](topic,event.toString))
 
-      println("Message snet : " + event.toString)
+      println("Message sent : " + event.toString)
       Thread.sleep(2000)
     }
   }
